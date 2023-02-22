@@ -1,0 +1,39 @@
+import pyautogui
+import time
+
+# Open a web browser
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("firefox.exe")
+pyautogui.press("enter")
+
+# Wait for the web browser to load
+time.sleep(5)
+
+# Navigate to a website with a form
+pyautogui.typewrite("https://www.example.com/form")
+pyautogui.press("enter")
+
+# Wait for the page to load
+time.sleep(5)
+
+# Fill out the form fields
+pyautogui.typewrite("John")
+pyautogui.press("tab")
+pyautogui.typewrite("Doe")
+pyautogui.press("tab")
+pyautogui.typewrite("johndoe@example.com")
+pyautogui.press("tab")
+pyautogui.typewrite("123 Main St.")
+pyautogui.press("tab")
+pyautogui.typewrite("Anytown")
+pyautogui.press("tab")
+pyautogui.typewrite("USA")
+
+# Submit the form
+pyautogui.press("enter")
+
+# Wait for the form to be submitted
+time.sleep(5)
+
+# Close the web browser
+pyautogui.hotkey("alt", "f4")
