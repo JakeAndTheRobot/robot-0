@@ -1,0 +1,22 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate random data for the independent variable x and the dependent variable y
+np.random.seed(0)
+x = np.random.rand(100)
+y = 2 * x + 1 + np.random.randn(100) * 0.1
+
+# Reshape x and y into 2D arrays
+X = x.reshape(-1, 1)
+Y = y.reshape(-1, 1)
+
+# Perform linear regression on the data
+a, b = np.linalg.lstsq(X, Y, rcond=None)[0]
+
+# Predict y values for the given x values
+y_pred = a * x + b
+
+# Plot the data and the regression line
+plt.scatter(x, y)
+plt.plot(x, y_pred, color='red')
+plt.show()
