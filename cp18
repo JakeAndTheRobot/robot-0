@@ -1,0 +1,67 @@
+import pyautogui
+import time
+
+# Open the Gmail website
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("https://www.gmail.com")
+pyautogui.press("enter")
+
+# Wait for the Gmail website to load
+time.sleep(5)
+
+# Click the "Sign in" button
+sign_in_button = pyautogui.locateOnScreen("sign_in_button.png")
+pyautogui.click(pyautogui.center(sign_in_button))
+
+# Wait for the sign-in page to load
+time.sleep(5)
+
+# Enter the email address
+email_field = pyautogui.locateOnScreen("email_field.png")
+pyautogui.click(pyautogui.center(email_field))
+pyautogui.typewrite("youremail@gmail.com")
+pyautogui.press("enter")
+
+# Wait for the password page to load
+time.sleep(5)
+
+# Enter the password
+password_field = pyautogui.locateOnScreen("password_field.png")
+pyautogui.click(pyautogui.center(password_field))
+pyautogui.typewrite("yourpassword")
+pyautogui.press("enter")
+
+# Wait for the Gmail inbox to load
+time.sleep(5)
+
+# Click the "Compose" button
+compose_button = pyautogui.locateOnScreen("compose_button.png")
+pyautogui.click(pyautogui.center(compose_button))
+
+# Wait for the new email window to load
+time.sleep(5)
+
+# Enter the recipient's email address
+to_field = pyautogui.locateOnScreen("to_field.png")
+pyautogui.click(pyautogui.center(to_field))
+pyautogui.typewrite("recipient@gmail.com")
+
+# Enter the subject
+subject_field = pyautogui.locateOnScreen("subject_field.png")
+pyautogui.click(pyautogui.center(subject_field))
+pyautogui.typewrite("Subject")
+
+# Enter the message body
+message_field = pyautogui.locateOnScreen("message_field.png")
+pyautogui.click(pyautogui.center(message_field))
+pyautogui.typewrite("Hello, World!")
+
+# Click the "Send" button
+send_button = pyautogui.locateOnScreen("send_button.png")
+pyautogui.click(pyautogui.center(send_button))
+
+# Wait for the email to be sent
+time.sleep(5)
+
+# Sign out of Gmail
+pyautogui.hotkey("ctrl", "w")
