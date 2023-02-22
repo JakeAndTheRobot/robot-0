@@ -1,0 +1,37 @@
+import pyautogui
+import time
+
+# Open a web browser
+pyautogui.hotkey('command', 'space')
+pyautogui.typewrite('chrome')
+pyautogui.press('enter')
+
+# Wait for the browser to launch
+pyautogui.sleep(3)
+
+# Open a website
+pyautogui.typewrite('https://www.google.com')
+pyautogui.press('enter')
+
+# Wait for the website to load
+pyautogui.sleep(3)
+
+# Search for something
+search_box = pyautogui.locateOnScreen('search_box.png')
+pyautogui.click(search_box)
+pyautogui.typewrite('automating tasks with pyautogui')
+pyautogui.press('enter')
+
+# Wait for the search results to appear
+pyautogui.sleep(3)
+
+# Check if the search was successful
+search_results = pyautogui.locateOnScreen('search_results.png')
+
+# Close the browser
+pyautogui.hotkey('command', 'q')
+
+if search_results:
+    print('The search was successful')
+else:
+    print('The search was not successful')
