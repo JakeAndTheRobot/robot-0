@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+np.random.seed(0)
+
+# Generate random data with different distributions
+n_bins = 25
+x1 = np.random.normal(0, 1, size=100)
+x2 = np.random.gamma(2, 1.5, size=100)
+x3 = np.random.exponential(2, size=100)
+
+# Stack the data into one array
+data = np.concatenate((x1, x2, x3))
+
+# Assign labels to each data point based on the distribution it came from
+labels = ['x1'] * 100 + ['x2'] * 100 + ['x3'] * 100
+
+# Plot the data using different markers and colors for each label
+fig, ax = plt.subplots()
+for label, color, marker in zip(np.unique(labels), 'rgb', 'so^'):
+    ax.scatter(data[labels == label], np.zeros_like(data[labels == label]), c=color, marker=marker, label=label)
+ax.legend(loc='upper left')
+
+plt.show()
