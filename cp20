@@ -1,0 +1,24 @@
+import pyautogui
+import time
+
+# Open a web browser
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("chrome.exe")
+pyautogui.press("enter")
+
+# Wait for the web browser to load
+time.sleep(5)
+
+# Navigate to a website
+pyautogui.typewrite("https://www.example.com")
+pyautogui.press("enter")
+
+# Wait for the website to load
+time.sleep(5)
+
+# Take a screenshot of the website
+screenshot = pyautogui.screenshot()
+screenshot.save("example.png")
+
+# Close the web browser
+pyautogui.hotkey("alt", "f4")
