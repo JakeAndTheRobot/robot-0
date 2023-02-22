@@ -1,0 +1,51 @@
+import pyautogui
+import time
+
+# Open Adobe Acrobat
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("Acrobat.exe")
+pyautogui.press("enter")
+
+# Wait for Adobe Acrobat to load
+time.sleep(10)
+
+# Open a file
+file_menu = pyautogui.locateOnScreen("file_menu.png")
+pyautogui.click(pyautogui.center(file_menu))
+
+open_option = pyautogui.locateOnScreen("open_option.png")
+pyautogui.click(pyautogui.center(open_option))
+
+# Wait for the file open dialog to appear
+time.sleep(5)
+
+# Enter the file path
+file_path_field = pyautogui.locateOnScreen("file_path_field.png")
+pyautogui.click(pyautogui.center(file_path_field))
+pyautogui.typewrite("C:\\path\\to\\file.pdf")
+pyautogui.press("enter")
+
+# Wait for the file to open
+time.sleep(10)
+
+# Convert the file
+file_menu = pyautogui.locateOnScreen("file_menu.png")
+pyautogui.click(pyautogui.center(file_menu))
+
+save_as_option = pyautogui.locateOnScreen("save_as_option.png")
+pyautogui.click(pyautogui.center(save_as_option))
+
+# Wait for the save as dialog to appear
+time.sleep(5)
+
+# Enter the new file path
+file_path_field = pyautogui.locateOnScreen("file_path_field.png")
+pyautogui.click(pyautogui.center(file_path_field))
+pyautogui.typewrite("C:\\path\\to\\new_file.pdf")
+pyautogui.press("enter")
+
+# Wait for the conversion to complete
+time.sleep(5)
+
+# Close Adobe Acrobat
+pyautogui.hotkey("alt", "f4")
