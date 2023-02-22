@@ -1,0 +1,16 @@
+import numpy as np
+
+# Generate a random matrix with shape (100, 50)
+matrix = np.random.rand(100, 50)
+
+# Compute the singular value decomposition of the matrix
+U, s, V = np.linalg.svd(matrix, full_matrices=False)
+
+# Reconstruct the original matrix from the decomposition
+reconstructed = U @ np.diag(s) @ V
+
+# Calculate the mean squared error between the original and reconstructed matrices
+mse = np.mean((matrix - reconstructed)**2)
+
+# Print the mean squared error
+print("Mean Squared Error:", mse)
