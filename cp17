@@ -1,0 +1,48 @@
+import pyautogui
+import time
+
+# Open the spreadsheet software
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("excel")
+pyautogui.press("enter")
+
+# Wait for the spreadsheet software to load
+time.sleep(1)
+
+# Create a new spreadsheet
+pyautogui.hotkey("ctrl", "n")
+
+# Wait for the new spreadsheet to appear
+time.sleep(1)
+
+# Enter data in cells
+pyautogui.typewrite("A1")
+pyautogui.press("enter")
+pyautogui.typewrite("1")
+pyautogui.press("enter")
+pyautogui.typewrite("A2")
+pyautogui.press("enter")
+pyautogui.typewrite("2")
+pyautogui.press("enter")
+
+# Calculate the sum of cells
+pyautogui.typewrite("A3")
+pyautogui.press("enter")
+pyautogui.typewrite("=SUM(A1:A2)")
+pyautogui.press("enter")
+
+# Save the spreadsheet
+pyautogui.hotkey("ctrl", "s")
+
+# Wait for the save dialog to appear
+time.sleep(1)
+
+# Confirm the save
+pyautogui.typewrite("example.xlsx")
+pyautogui.press("enter")
+
+# Wait for the spreadsheet to be saved
+time.sleep(1)
+
+# Close the spreadsheet software
+pyautogui.hotkey("alt", "f4")
