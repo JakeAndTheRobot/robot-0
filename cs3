@@ -1,0 +1,13 @@
+import pyperclip
+
+# Set the text to be copied to the clipboard
+text = "Hello, world!"
+
+# Copy the text to the clipboard
+pyperclip.copy(text)
+
+# Paste the text from the clipboard
+pasted_text = pyperclip.paste()
+
+# Print the pasted text
+print(pasted_text)
