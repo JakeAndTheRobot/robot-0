@@ -1,0 +1,18 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+np.random.seed(0)
+
+# Generate some random data and corresponding errors
+data = [1, 2, 3, 4, 5]
+error = [0.1, 0.2, 0.3, 0.4, 0.5]
+
+# Plot the bar chart with error bars
+fig, ax = plt.subplots()
+ax.bar(np.arange(len(data)), data, yerr=error, capsize=10, color='b')
+
+plt.xlabel('Bars')
+plt.ylabel('Data')
+plt.title('Bar chart with error bars')
+
+plt.show()
