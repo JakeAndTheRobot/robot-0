@@ -1,0 +1,25 @@
+import pyautogui
+import time
+
+# Open the spreadsheet program
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("excel")
+pyautogui.press("enter")
+
+# Wait for the spreadsheet program to load
+time.sleep(1)
+
+# Select cell A1
+pyautogui.hotkey("ctrl", "home")
+
+# Enter some data
+pyautogui.typewrite("Example Data")
+pyautogui.press("enter")
+
+# Save the file
+pyautogui.hotkey("ctrl", "s")
+pyautogui.typewrite("example.xlsx")
+pyautogui.press("enter")
+
+# Close the spreadsheet program
+pyautogui.hotkey("alt", "f4")
