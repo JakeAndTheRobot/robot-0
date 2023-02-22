@@ -1,0 +1,27 @@
+import pyautogui
+import time
+
+# Open the media player
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("vlc")
+pyautogui.press("enter")
+
+# Wait for the media player to load
+time.sleep(1)
+
+# Open a media file
+pyautogui.hotkey("ctrl", "o")
+pyautogui.typewrite("example.mp4")
+pyautogui.press("enter")
+
+# Wait for the media file to load
+time.sleep(1)
+
+# Play the media file
+pyautogui.press("space")
+
+# Wait for the media file to finish playing
+time.sleep(10)
+
+# Close the media player
+pyautogui.hotkey("alt", "f4")
