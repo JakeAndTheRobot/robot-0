@@ -1,0 +1,46 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate random data points for clustering
+np.random.seed(0)
+points = np.random.rand(100, 2)
+
+# Number of clusters
+k = 3
+
+# Randomly initialize the cluster centroids
+centroids = np.random.rand(k, 2)
+
+# Assign each data point to the closest centroid
+def assign_points_to_clusters(points, centroids):
+    distances = np.sqrt(((points - centroids[:, np.newaxis])**2).sum(axis=2))
+    return np.argmin(distances, axis=0)
+
+assignments = assign_points_to_clusters(points, centroids)
+
+# Update the centroids based on the mean of the assigned data points
+def update_centroids(points, assignments, k):
+    new_centroids = np.array([points[assignments == i].mean(axis=0) for i in range(k)])
+    return new_centroids
+
+centroids = update_centroids(points, assignments, k)
+
+# Repeat the assignment and update steps until convergence
+def k_means(points, k, centroids):
+    while True:
+        old_centroids = centroids
+        assignments = assign_points_to_clusters(points, centroids)
+        centroids = update_centroids(points, assignments, k)
+        if np.allclose(centroids, old_centroids):
+            break
+    return assignments, centroids
+
+assignments, centroids = k_means(points, k, centroids)
+
+# Plot the data points and centroids
+colors = ['red', 'green', 'blue']
+for i in range(k):
+    cluster = points[assignments == i]
+    plt.scatter(cluster[:, 0], cluster[:, 1], c=colors[i])
+plt.scatter(centroids[:, 0], centroids[:, 1], marker='x', s=200, linewidths=3, color='black')
+plt.show()
