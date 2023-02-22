@@ -1,0 +1,21 @@
+import pyautogui
+import datetime
+
+# Get the size of the screen
+screen_width, screen_height = pyautogui.size()
+
+# Take a screenshot of the entire screen
+screenshot = pyautogui.screenshot()
+
+# Save the screenshot to a file
+now = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+screenshot_file = f"screenshot_{now}.png"
+screenshot.save(screenshot_file)
+
+# Take another screenshot of the top-left corner of the screen
+top_left_corner = (0, 0, screen_width // 2, screen_height // 2)
+screenshot = pyautogui.screenshot(region=top_left_corner)
+
+# Save the screenshot to a file
+screenshot_file = f"screenshot_{now}_top_left_corner.png"
+screenshot.save(screenshot_file)
