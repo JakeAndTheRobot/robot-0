@@ -1,0 +1,27 @@
+import pyautogui
+
+# Open the desktop application
+pyautogui.hotkey('command', 'space')
+pyautogui.typewrite('calculator')
+pyautogui.press('enter')
+
+# Wait for the calculator to launch
+pyautogui.sleep(3)
+
+# Perform a calculation
+pyautogui.typewrite('2+2')
+pyautogui.press('enter')
+
+# Wait for the result to appear
+pyautogui.sleep(3)
+
+# Check the result
+result = pyautogui.locateOnScreen('result.png')
+
+# Close the calculator
+pyautogui.hotkey('command', 'q')
+
+if result:
+    print('The result of 2+2 is 4')
+else:
+    print('The calculation is incorrect')
