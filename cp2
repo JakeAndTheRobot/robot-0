@@ -1,0 +1,29 @@
+import pandas as pd
+
+# Load a CSV file into a dataframe
+df = pd.read_csv('https://people.sc.fsu.edu/~jburkardt/data/csv/airtravel.csv')
+
+# Print the first 5 rows of the dataframe
+print(df.head())
+
+# Get the number of missing values in each column
+print(df.isna().sum())
+
+# Fill missing values with the mean value of each column
+df.fillna(df.mean(), inplace=True)
+
+# Convert a column to a categorical data type
+df['Month'] = df['Month'].astype('category')
+
+# One-hot encode the categorical column
+one_hot = pd.get_dummies(df['Month'], prefix='month')
+df = pd.concat([df, one_hot], axis=1)
+
+# Drop the original categorical column
+df.drop('Month', axis=1, inplace=True)
+
+# Normalize the numeric columns
+normalized_df=(df-df.mean())/df.std()
+
+# Print the first 5 rows of the normalized dataframe
+print(normalized_df.head())
