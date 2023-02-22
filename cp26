@@ -1,0 +1,21 @@
+import pyautogui
+import time
+
+# Open a notepad
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("notepad.exe")
+pyautogui.press("enter")
+
+# Wait for the notepad to load
+time.sleep(5)
+
+# Type some text into the notepad
+pyautogui.typewrite("Hello, world!")
+
+# Save the notepad file
+pyautogui.hotkey("ctrl", "s")
+pyautogui.typewrite("hello.txt")
+pyautogui.press("enter")
+
+# Close the notepad
+pyautogui.hotkey("alt", "f4")
