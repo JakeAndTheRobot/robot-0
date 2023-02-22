@@ -1,0 +1,29 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate random data for high-dimensional data
+np.random.seed(0)
+data = np.random.rand(100, 5)
+
+# Calculate the covariance matrix
+cov_mat = np.cov(data.T)
+
+# Calculate the eigenvalues and eigenvectors of the covariance matrix
+eig_vals, eig_vecs = np.linalg.eigh(cov_mat)
+
+# Sort the eigenvalues and eigenvectors in descending order
+idx = np.argsort(eig_vals)[::-1]
+eig_vals = eig_vals[idx]
+eig_vecs = eig_vecs[:, idx]
+
+# Select the top two eigenvectors
+eig_vecs = eig_vecs[:, :2]
+
+# Project the data onto the new 2D subspace defined by the eigenvectors
+reduced_data = data.dot(eig_vecs)
+
+# Plot the original data and the reduced data
+plt.scatter(data[:, 0], data[:, 1], label='Original Data')
+plt.scatter(reduced_data[:, 0], reduced_data[:, 1], label='Reduced Data')
+plt.legend()
+plt.show()
