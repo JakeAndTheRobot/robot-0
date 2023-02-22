@@ -1,0 +1,40 @@
+import pyautogui
+import time
+
+# Open the graphic design software
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("photoshop")
+pyautogui.press("enter")
+
+# Wait for the graphic design software to load
+time.sleep(1)
+
+# Open an image file
+pyautogui.hotkey("ctrl", "o")
+pyautogui.typewrite("example.png")
+pyautogui.press("enter")
+
+# Wait for the image file to load
+time.sleep(1)
+
+# Apply a filter to the image
+pyautogui.hotkey("ctrl", "shift", "alt", "i")
+pyautogui.press("enter")
+
+# Wait for the filter to be applied
+time.sleep(1)
+
+# Save the image
+pyautogui.hotkey("ctrl", "s")
+
+# Wait for the save dialog to appear
+time.sleep(1)
+
+# Confirm the save
+pyautogui.press("enter")
+
+# Wait for the image to be saved
+time.sleep(1)
+
+# Close the graphic design software
+pyautogui.hotkey("alt", "f4")
