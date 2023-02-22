@@ -1,0 +1,38 @@
+import pyautogui
+import time
+
+# Open the web browser
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("chrome")
+pyautogui.press("enter")
+
+# Wait for the web browser to load
+time.sleep(1)
+
+# Navigate to a website
+pyautogui.typewrite("www.google.com")
+pyautogui.press("enter")
+
+# Wait for the website to load
+time.sleep(1)
+
+# Search for a term on the website
+search_box = pyautogui.locateOnScreen("search_box.png")
+if search_box is not None:
+    center_x, center_y = pyautogui.center(search_box)
+    pyautogui.click(center_x, center_y)
+    pyautogui.typewrite("pyautogui")
+    pyautogui.press("enter")
+else:
+    print("Search box not found")
+
+# Wait for the search results to load
+time.sleep(1)
+
+# Click on the first result
+first_result = pyautogui.locateOnScreen("first_result.png")
+if first_result is not None:
+    center_x, center_y = pyautogui.center(first_result)
+    pyautogui.click(center_x, center_y)
+else:
+    print("First result not found")
