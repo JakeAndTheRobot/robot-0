@@ -1,0 +1,32 @@
+import pyautogui
+import time
+
+# Open the graphic design program
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("photoshop")
+pyautogui.press("enter")
+
+# Wait for the graphic design program to load
+time.sleep(1)
+
+# Create a new document
+pyautogui.hotkey("ctrl", "n")
+
+# Set the document size
+pyautogui.typewrite("800")
+pyautogui.press("tab")
+pyautogui.typewrite("600")
+pyautogui.press("enter")
+
+# Draw a shape
+pyautogui.hotkey("ctrl", "2")
+pyautogui.press("down")
+pyautogui.press("enter")
+
+# Save the file
+pyautogui.hotkey("ctrl", "s")
+pyautogui.typewrite("example.psd")
+pyautogui.press("enter")
+
+# Close the graphic design program
+pyautogui.hotkey("alt", "f4")
