@@ -1,0 +1,43 @@
+import pyautogui
+import time
+
+# Open a text editor
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("notepad.exe")
+pyautogui.press("enter")
+
+# Wait for the text editor to load
+time.sleep(5)
+
+# Open a file
+pyautogui.hotkey("ctrl", "o")
+
+# Wait for the open file dialog to appear
+time.sleep(5)
+
+# Enter the name of the file to be opened
+pyautogui.typewrite("example.txt")
+
+# Confirm the file name
+pyautogui.press("enter")
+
+# Wait for the file to be loaded
+time.sleep(5)
+
+# Save the file with a new name
+pyautogui.hotkey("ctrl", "s")
+
+# Wait for the save file dialog to appear
+time.sleep(5)
+
+# Enter the new name for the file
+pyautogui.typewrite("example_new.txt")
+
+# Confirm the new file name
+pyautogui.press("enter")
+
+# Wait for the file to be saved
+time.sleep(5)
+
+# Close the text editor
+pyautogui.hotkey("alt", "f4")
