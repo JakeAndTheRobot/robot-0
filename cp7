@@ -1,0 +1,22 @@
+import pyautogui
+import time
+
+# Open the GUI application
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("paint")
+pyautogui.press("enter")
+
+# Wait for the GUI application to load
+time.sleep(1)
+
+# Draw a line in the application
+pyautogui.click(100, 100)
+pyautogui.drag(100, 200, duration=0.5)
+
+# Save the file
+pyautogui.hotkey("ctrl", "s")
+pyautogui.typewrite("example.png")
+pyautogui.press("enter")
+
+# Close the GUI application
+pyautogui.hotkey("alt", "f4")
