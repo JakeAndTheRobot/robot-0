@@ -1,0 +1,19 @@
+import numpy as np
+
+# Generate a random array with 1000 elements
+arr = np.random.rand(1000)
+
+# Compute the moving average of the array with a window size of 50
+def moving_average(a, n=50):
+    ret = np.cumsum(a, dtype=float)
+    ret[n:] = ret[n:] - ret[:-n]
+    return ret[n - 1:] / n
+
+moving_average = moving_average(arr)
+
+# Find the index of the maximum value of the moving average
+max_index = np.argmax(moving_average)
+
+# Print the maximum value and its index
+print("Max value:", moving_average[max_index])
+print("Index:", max_index)
