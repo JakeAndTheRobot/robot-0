@@ -1,0 +1,26 @@
+import pyautogui
+import time
+
+# Move the mouse to the top left corner of the screen
+pyautogui.moveTo(0, 0)
+
+# Open the calculator application
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("calc")
+pyautogui.press("enter")
+
+# Wait for the calculator to load
+time.sleep(1)
+
+# Use the calculator to perform a calculation
+pyautogui.typewrite("2+2")
+pyautogui.press("enter")
+
+# Retrieve the result of the calculation
+result = pyautogui.locateOnScreen("calculator_result.png")
+if result is not None:
+    # Extract the text from the image
+    text = pyautogui.ocr(result)
+    print(f"Result: {text}")
+else:
+    print("Result not found")
