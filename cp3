@@ -1,0 +1,24 @@
+import pyautogui
+
+# Move the mouse to a specific position on the screen
+pyautogui.moveTo(100, 150)
+
+# Click the mouse at the current position
+pyautogui.click()
+
+# Type the string "Hello World!"
+pyautogui.typewrite("Hello World!", interval=0.25)
+
+# Press the "enter" key
+pyautogui.press("enter")
+
+# Take a screenshot and save it to the current directory
+screenshot = pyautogui.screenshot()
+screenshot.save("screenshot.png")
+
+# Locate an image on the screen
+image_location = pyautogui.locateOnScreen("image.png")
+if image_location is not None:
+    # Click the center of the image if it is found
+    center_x, center_y = pyautogui.center(image_location)
+    pyautogui.click(center_x, center_y)
