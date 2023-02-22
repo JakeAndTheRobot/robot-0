@@ -1,0 +1,19 @@
+import pyautogui
+import time
+
+# Open a photo editing software
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("paint.exe")
+pyautogui.press("enter")
+
+# Wait for the software to load
+time.sleep(5)
+
+# Take a screenshot
+screenshot = pyautogui.screenshot()
+
+# Save the screenshot to a file
+screenshot.save("screenshot.png")
+
+# Close the software
+pyautogui.hotkey("alt", "f4")
