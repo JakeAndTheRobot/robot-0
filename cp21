@@ -1,0 +1,48 @@
+import pyautogui
+import time
+
+# Open a web browser
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("chrome.exe")
+pyautogui.press("enter")
+
+# Wait for the web browser to load
+time.sleep(5)
+
+# Navigate to a website with a form
+pyautogui.typewrite("https://www.example.com/form")
+pyautogui.press("enter")
+
+# Wait for the website to load
+time.sleep(5)
+
+# Find the form elements
+first_name_field = pyautogui.locateOnScreen("first_name.png")
+first_name_field_center = pyautogui.center(first_name_field)
+pyautogui.click(first_name_field_center)
+
+# Fill out the form
+pyautogui.typewrite("John")
+
+last_name_field = pyautogui.locateOnScreen("last_name.png")
+last_name_field_center = pyautogui.center(last_name_field)
+pyautogui.click(last_name_field_center)
+
+pyautogui.typewrite("Doe")
+
+email_field = pyautogui.locateOnScreen("email.png")
+email_field_center = pyautogui.center(email_field)
+pyautogui.click(email_field_center)
+
+pyautogui.typewrite("john.doe@example.com")
+
+# Submit the form
+submit_button = pyautogui.locateOnScreen("submit.png")
+submit_button_center = pyautogui.center(submit_button)
+pyautogui.click(submit_button_center)
+
+# Wait for the form to be submitted
+time.sleep(5)
+
+# Close the web browser
+pyautogui.hotkey("alt", "f4")
