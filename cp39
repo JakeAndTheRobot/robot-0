@@ -1,0 +1,19 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+np.random.seed(0)
+
+# Generate random data with different distributions
+n_bins = 25
+x1 = np.random.normal(0, 1, size=100)
+x2 = np.random.gamma(2, 1.5, size=100)
+x3 = np.random.exponential(2, size=100)
+
+# Plot the histograms with alpha to make overlapping areas semi-transparent
+fig, ax = plt.subplots()
+ax.hist(x1, bins=n_bins, alpha=0.5, color='b', label='x1')
+ax.hist(x2, bins=n_bins, alpha=0.5, color='g', label='x2')
+ax.hist(x3, bins=n_bins, alpha=0.5, color='r', label='x3')
+ax.legend(loc='upper right')
+
+plt.show()
