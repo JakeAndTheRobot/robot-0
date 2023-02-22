@@ -1,0 +1,33 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate random data for a 2D dataset
+np.random.seed(0)
+data = np.random.rand(100, 2)
+
+# Specify the number of clusters
+k = 5
+
+# Initialize the centroids randomly
+centroids = data[np.random.choice(data.shape[0], k, replace=False), :]
+
+# Iteratively update the centroids and reassign points to clusters
+for i in range(20):
+    # Calculate the distance between each point and each centroid
+    distances = np.linalg.norm(data[:, np.newaxis, :] - centroids, axis=2)
+    
+    # Assign each point to the nearest centroid
+    labels = np.argmin(distances, axis=1)
+    
+    # Update the centroids based on the mean of the assigned points
+    new_centroids = np.array([data[labels == j].mean(axis=0) for j in range(k)])
+    
+    # Check for convergence
+    if np.allclose(centroids, new_centroids):
+        break
+    centroids = new_centroids
+
+# Plot the original data and the centroids
+plt.scatter(data[:, 0], data[:, 1], c=labels)
+plt.scatter(centroids[:, 0], centroids[:, 1], marker='x', s=200, linewidths=3, color='r')
+plt.show()
