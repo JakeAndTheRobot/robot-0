@@ -1,0 +1,11 @@
+def counting_sort(arr):
+    max_element = max(arr)
+    counting_array = [0] * (max_element + 1)
+    for i in arr:
+        counting_array[i] += 1
+    idx = 0
+    for i in range(max_element + 1):
+        for j in range(counting_array[i]):
+            arr[idx] = i
+            idx += 1
+    return arr
