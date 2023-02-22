@@ -1,0 +1,17 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+np.random.seed(0)
+
+# Generate some random data for the chart
+data = [np.random.normal(0, 0.5, 100), np.random.normal(1, 0.5, 100), np.random.normal(2, 0.5, 100)]
+
+# Plot the violin plot
+fig, ax = plt.subplots()
+ax.violinplot(data, showmedians=True, showextrema=True)
+
+plt.xlabel('Data')
+plt.ylabel('Values')
+plt.title('Violin plot')
+
+plt.show()
