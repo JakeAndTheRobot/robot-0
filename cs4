@@ -1,0 +1,8 @@
+import pyautogui
+import time
+
+# Wait for the user to position the cursor where the text should be pasted
+time.sleep(5)  # wait for 5 seconds
+
+# Press and release the "ctrl" and "v" keys to paste the text
+pyautogui.hotkey('ctrl', 'v')
