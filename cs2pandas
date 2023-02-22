@@ -1,0 +1,25 @@
+import pandas as pd
+
+# Create a dataframe from a dictionary
+data = {'Name': ['John', 'Jane', 'Jim', 'Joan'],
+        'Age': [32, 28, 41, 35],
+        'Country': ['USA', 'Canada', 'UK', 'Australia']}
+df = pd.DataFrame(data)
+
+# Print the dataframe
+print(df)
+
+# Get information about the dataframe
+print(df.info())
+
+# Get statistics about the numeric columns in the dataframe
+print(df.describe())
+
+# Select a column
+print(df['Age'])
+
+# Select multiple columns
+print(df[['Name', 'Country']])
+
+# Filter the dataframe based on a condition
+print(df[df['Age'] > 35])
