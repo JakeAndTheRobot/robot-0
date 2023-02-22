@@ -1,0 +1,29 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+np.random.seed(0)
+
+# Generate random data with different distributions
+x1 = np.random.normal(0, 1, size=100)
+y1 = x1 + np.random.normal(0, 0.5, size=100)
+x2 = np.random.normal(3, 1, size=100)
+y2 = x2 + np.random.normal(0, 0.5, size=100)
+
+# Fit linear regression models to the data
+model1 = LinearRegression().fit(x1.reshape(-1, 1), y1)
+model2 = LinearRegression().fit(x2.reshape(-1, 1), y2)
+
+# Plot the scatter plots and regression lines
+fig, ax = plt.subplots()
+ax.scatter(x1, y1, color='b', label='Dataset 1')
+ax.scatter(x2, y2, color='g', label='Dataset 2')
+ax.plot(x1, model1.predict(x1.reshape(-1, 1)), 'r--', label='Regression line 1')
+ax.plot(x2, model2.predict(x2.reshape(-1, 1)), 'y--', label='Regression line 2')
+ax.legend(loc='lower right')
+
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Scatter plot with linear regression lines')
+
+plt.show()
