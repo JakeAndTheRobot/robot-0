@@ -1,0 +1,27 @@
+import pyautogui
+
+# Open the web browser
+pyautogui.hotkey('command', 'space')
+pyautogui.typewrite('chrome')
+pyautogui.press('enter')
+
+# Wait for the browser to launch
+pyautogui.sleep(3)
+
+# Navigate to a website
+pyautogui.typewrite('https://www.google.com')
+pyautogui.press('enter')
+
+# Wait for the website to load
+pyautogui.sleep(3)
+
+# Search for something
+pyautogui.typewrite('pyautogui tutorial')
+pyautogui.press('enter')
+
+# Wait for the search results to load
+pyautogui.sleep(3)
+
+# Click on the first result
+first_result_x, first_result_y = pyautogui.locateCenterOnScreen('first_result.png')
+pyautogui.click(first_result_x, first_result_y)
