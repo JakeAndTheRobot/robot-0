@@ -1,0 +1,29 @@
+import pandas as pd
+
+# Load a CSV file into a dataframe
+df = pd.read_csv('https://people.sc.fsu.edu/~jburkardt/data/csv/addresses.csv')
+
+# Print the first 5 rows of the dataframe
+print(df.head())
+
+# Get the shape of the dataframe
+print(df.shape)
+
+# Rename columns in the dataframe
+df.rename(columns={'Longitude': 'Lon', 'Latitude': 'Lat'}, inplace=True)
+
+# Print the column names
+print(df.columns)
+
+# Group the data by a column and calculate the mean of each group
+grouped = df.groupby(['State']).mean()
+print(grouped)
+
+# Sort the data by multiple columns
+df.sort_values(by=['State', 'City'], ascending=[True, False], inplace=True)
+
+# Reset the index of the dataframe
+df.reset_index(drop=True, inplace=True)
+
+# Print the first 5 rows of the dataframe
+print(df.head())
