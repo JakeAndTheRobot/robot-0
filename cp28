@@ -1,0 +1,28 @@
+import pyautogui
+import time
+
+# Open a window
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("notepad.exe")
+pyautogui.press("enter")
+
+# Wait for the window to load
+time.sleep(5)
+
+# Get the current window position and size
+x, y = pyautogui.position()
+w, h = pyautogui.size()
+
+# Resize the window
+new_w, new_h = w * 2, h * 2
+pyautogui.resizeTo(new_w, new_h)
+
+# Move the window
+new_x, new_y = x - w // 2, y - h // 2
+pyautogui.moveTo(new_x, new_y)
+
+# Wait for the window to be resized and moved
+time.sleep(5)
+
+# Close the window
+pyautogui.hotkey("alt", "f4")
