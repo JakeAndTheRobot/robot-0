@@ -1,0 +1,30 @@
+import pyautogui
+import time
+
+# Open the web browser
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("chrome")
+pyautogui.press("enter")
+
+# Wait for the web browser to load
+time.sleep(1)
+
+# Go to a website
+pyautogui.typewrite("https://www.example.com")
+pyautogui.press("enter")
+
+# Wait for the website to load
+time.sleep(1)
+
+# Search for a term
+pyautogui.typewrite("example search")
+pyautogui.press("enter")
+
+# Wait for the search results to load
+time.sleep(1)
+
+# Click a link
+pyautogui.click(x=100, y=200)
+
+# Close the web browser
+pyautogui.hotkey("alt", "f4")
