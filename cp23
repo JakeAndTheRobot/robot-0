@@ -1,25 +1,39 @@
-import pandas as pd
+import pyautogui
+import time
 
-# Create a dataframe from a dictionary
-data = {'Name': ['John', 'Jane', 'Jim', 'Joan'],
-        'Age': [32, 28, 41, 35],
-        'Country': ['USA', 'Canada', 'UK', 'Australia']}
-df = pd.DataFrame(data)
+# Open a web browser
+pyautogui.hotkey("winleft", "r")
+pyautogui.typewrite("firefox.exe")
+pyautogui.press("enter")
 
-# Print the dataframe
-print(df)
+# Wait for the web browser to load
+time.sleep(5)
 
-# Get information about the dataframe
-print(df.info())
+# Navigate to a website with a form
+pyautogui.typewrite("https://www.example.com/form")
+pyautogui.press("enter")
 
-# Get statistics about the numeric columns in the dataframe
-print(df.describe())
+# Wait for the page to load
+time.sleep(5)
 
-# Select a column
-print(df['Age'])
+# Fill out the form fields
+pyautogui.typewrite("John")
+pyautogui.press("tab")
+pyautogui.typewrite("Doe")
+pyautogui.press("tab")
+pyautogui.typewrite("johndoe@example.com")
+pyautogui.press("tab")
+pyautogui.typewrite("123 Main St.")
+pyautogui.press("tab")
+pyautogui.typewrite("Anytown")
+pyautogui.press("tab")
+pyautogui.typewrite("USA")
 
-# Select multiple columns
-print(df[['Name', 'Country']])
+# Submit the form
+pyautogui.press("enter")
 
-# Filter the dataframe based on a condition
-print(df[df['Age'] > 35])
+# Wait for the form to be submitted
+time.sleep(5)
+
+# Close the web browser
+pyautogui.hotkey("alt", "f4")
