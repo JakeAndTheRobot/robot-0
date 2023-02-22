@@ -1,0 +1,25 @@
+import pyautogui
+import time
+
+# Open the file explorer
+pyautogui.hotkey("winleft", "e")
+
+# Wait for the file explorer to load
+time.sleep(1)
+
+# Navigate to a folder
+pyautogui.typewrite("C:\\")
+pyautogui.press("enter")
+
+# Wait for the folder to load
+time.sleep(1)
+
+# Select multiple files
+pyautogui.hotkey("ctrl", "a")
+
+# Delete the selected files
+pyautogui.hotkey("del")
+pyautogui.press("enter")
+
+# Close the file explorer
+pyautogui.hotkey("alt", "f4")
