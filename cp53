@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate random data for a 2D dataset
+np.random.seed(0)
+data = np.random.rand(100, 2)
+
+# Center the data (i.e., subtract the mean of each feature)
+mean = np.mean(data, axis=0)
+data_centered = data - mean
+
+# Calculate the covariance matrix
+cov = np.cov(data_centered, rowvar=False)
+
+# Calculate the eigenvalues and eigenvectors of the covariance matrix
+eigenvalues, eigenvectors = np.linalg.eig(cov)
+
+# Project the data onto the first eigenvector
+data_projected = np.dot(data_centered, eigenvectors[:, 0])
+
+# Plot the original data and the projection
+plt.scatter(data[:, 0], data[:, 1], c='b')
+plt.scatter(data_projected, np.zeros_like(data_projected), c='r')
+plt.show()
